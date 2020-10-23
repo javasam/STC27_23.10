@@ -1,5 +1,5 @@
 # STC27_23.10
-# Задание
+<h3>Задание</h3>
 Разработать REST-сервис, позволяющий по URL вида
 http://host:port/service_name/{table_name} получить все содержимое таблицы в БД, а по
 URL вида http://host:port/service_name/{table_name}/{row_id} - одну запись. Данные URL
