@@ -9,7 +9,7 @@ URL вида http://host:port/service_name/{table_name}/{row_id} - одну за
 Для авторизации необходимо ввести логин: user, пароль: password<br>
 
 Получение конкретной записи из таблицы по id по ссылке http://localhost:8080/rest/car?id=1 или http://localhost:8080/rest/car/1 <br>
-Добавление записи в базу POST запрос {"modelName":"VW"}<br> по ссылке https://rest-service-23.herokuapp.com/rest/car <br>
-Изменение записи в базе POST запрос {"id":5,"modelName":"VW"}<br> по ссылке https://rest-service-23.herokuapp.com/rest/car <br>
+Добавление записи в базу POST запрос {"modelName":"VW"} по ссылке https://rest-service-23.herokuapp.com/rest/car <br>
+Изменение записи в базе POST запрос {"id":5,"modelName":"VW"} по ссылке https://rest-service-23.herokuapp.com/rest/car <br>
 Получить все записи из таблицы https://rest-service-23.herokuapp.com/rest/allcars <br>
 Примерное время на выполнение - 2 часа.
