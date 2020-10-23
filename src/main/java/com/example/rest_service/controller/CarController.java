@@ -58,4 +58,11 @@ public class CarController {
         return jdbcTemplate.queryForMap("SELECT * FROM cars WHERE id=:rowNumber", paramMap);
     }
 
+    @RequestMapping("/car/allcars")
+    public Map<String, Object> showAllRows() {
+        NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        Map<String, Integer> paramMap = new HashMap<>();
+        return jdbcTemplate.queryForMap("SELECT * FROM cars", paramMap);
+    }
+
 }
