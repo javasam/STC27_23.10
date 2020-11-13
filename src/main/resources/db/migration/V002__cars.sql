@@ -6,9 +6,9 @@ create table cars
     model_name varchar
 );
 
-INSERT INTO cars (id, model_name)
-VALUES (1, 'Toyota'),
-       (2, 'BMW'),
-       (3, 'JEEP'),
-       (4, 'HONDA'),
-       (5, 'LADA');
+INSERT INTO cars (id, model_name, price)
+VALUES (1, 'Toyota', 130000),
+       (2, 'BMW', 500000),
+       (3, 'JEEP', 550000),
+       (4, 'HONDA', 190000),
+       (5, 'LADA', 180000);

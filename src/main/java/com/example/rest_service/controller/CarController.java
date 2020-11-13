@@ -38,7 +38,7 @@ public class CarController {
     //  POST -> {"modelName":"VW"} to INSERT or {"id":5,"modelName":"VW"} to UPDATE entry
     @PostMapping("/car")
     public ResponseEntity<?> addCar(@RequestBody Car car) {
-        Car newCar = new Car(car.getId(), car.getModelName());
+        Car newCar = new Car(car.getId(), car.getModelName(), car.getPrice());
         carsRepository.save(newCar);
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -13,12 +13,20 @@ public class Car {
     @Column(name = "model_name")
     String modelName;
 
+    @Column(name = "price")
+    Integer price;
+
     protected Car() {
     }
 
-    public Car(Long id, String modelName) {
+    public Car(Long id, String modelName, Integer price) {
         this.id = id;
         this.modelName = modelName;
+        this.price = price;
+    }
+
+    public Integer getPrice() {
+        return price;
     }
 
     public Long getId() {
@@ -42,6 +50,7 @@ public class Car {
         return "Car{" +
                 "id=" + id +
                 ", modelName='" + modelName + '\'' +
+                ", price=" + price +
                 '}';
     }
 }
