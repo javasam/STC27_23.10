@@ -22,5 +22,4 @@ public class User {
 
     @Column(name = "user_pass")
     private String userPass;
-
 }

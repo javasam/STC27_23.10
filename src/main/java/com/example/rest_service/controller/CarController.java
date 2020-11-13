@@ -26,25 +26,25 @@ public class CarController {
         this.dataSource = dataSource;
     }
 
-    //-> http://localhost:8080/rest/car?id=1
+    // GET -> http://localhost:8080/rest/car?id=1
     @RequestMapping("/car")
-    public Optional<?> find(@RequestParam(value = "id") Long id) {
-        if (carsRepository.findById(id).isPresent()) {
+    public Optional<Car> find(@RequestParam(value = "id") Long id) {
+        if (id != null) {
             return carsRepository.findById(id);
         }
-        return Optional.of("Car not found");
+        return Optional.empty();
     }
 
     //  POST -> {"modelName":"VW"} to INSERT or {"id":5,"modelName":"VW"} to UPDATE entry
     @PostMapping("/car")
-    public ResponseEntity<?> addCar(@RequestBody Car car) {
+    public ResponseEntity<HttpStatus> addCar(@RequestBody Car car) {
         Car newCar = new Car(car.getId(), car.getModelName(), car.getPrice());
         carsRepository.save(newCar);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    //-> http://localhost:8080/rest/allcars
-    @RequestMapping("/allcars")
+    // GET -> http://localhost:8080/rest/allcars
+    @RequestMapping("/auth/allcars")
     public Iterable<Car> showAll() {
         return carsRepository.findAll();
     }
@@ -55,6 +55,6 @@ public class CarController {
         NamedParameterJdbcTemplate jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
         Map<String, Integer> paramMap = new HashMap<>();
         paramMap.put("rowNumber", rowNumber);
-        return jdbcTemplate.queryForMap("SELECT * FROM cars WHERE id=:rowNumber", paramMap);
+        return jdbcTemplate.queryForMap("SELECT id, model_name FROM cars WHERE id=:rowNumber", paramMap);
     }
 }

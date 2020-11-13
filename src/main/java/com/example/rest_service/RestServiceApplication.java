@@ -25,15 +25,16 @@ public class RestServiceApplication extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable()
-                .cors().disable()
-                .httpBasic().disable()
+        httpSecurity
                 .authenticationProvider(myAuthProvider)
                 .formLogin()
+                .and()
+                .logout().logoutSuccessUrl("/byeuser.html")
                 .permitAll()
                 .and()
                 .authorizeRequests()
-                .anyRequest().authenticated();
+                .antMatchers("/rest/auth/**")
+                .authenticated();
     }
 
     public static void main(String[] args) {
